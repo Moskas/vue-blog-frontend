@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref, onMounted, watch } from 'vue'
 import OtherComponent from './OtherComponent.vue'
+import BlogList from './BlogList.vue';
 
 const counter = reactive({ count: 0 })
 const titleClass = ref('test')
@@ -19,8 +20,9 @@ let id = 0
 const newTodo = ref('')
 const hideCompleted = ref(false)
 const todos = ref([
+  { id: id++, text: 'Get trough the Vue tutorial', done: true },
   { id: id++, text: 'Learn Vue', done: false },
-  { id: id++, text: 'Get trough the Vue tutorial', done: true }
+  { id: id++, text: 'Transplant existing blog structure to Vue', done: false },
 ])
 
 function addTodo() {
@@ -101,6 +103,8 @@ const childMsg = ref('Nothing')
     <pre v-else>{{ todoData }}</pre>
     <OtherComponent :msg="greeting" @response="(msg) => childMsg = msg">{{ msg }}</OtherComponent>
     <p>{{ childMsg }}</p>
+
+    <BlogList></BlogList>
   </main>
 </template>
 
