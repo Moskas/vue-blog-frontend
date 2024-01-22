@@ -20,7 +20,7 @@ const newTodo = ref('')
 const hideCompleted = ref(false)
 const todos = ref([
   { id: id++, text: 'Learn Vue', done: false },
-  { id: id++, text: 'Learn Vue', done: false }
+  { id: id++, text: 'Get trough the Vue tutorial', done: true }
 ])
 
 function addTodo() {
@@ -64,7 +64,10 @@ const childMsg = ref('Nothing')
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/nix.webp" width="125" height="125" />
+    <span class="logo">Moskas' Website</span>
+    <a href="index.html">Home</a><a href="blog.html">Blog</a>
+    <a href="about.html">About Me</a><a href="projects.html">Projects</a><a href="cats.html">Cats</a>
+    <a href="vsrg.html">Rhythm games</a>
   </header>
 
   <main>
@@ -87,7 +90,7 @@ const childMsg = ref('Nothing')
     <ul>
       <li v-for="todo in todos" :key="todo.id">
         <input type="checkbox" v-model="todo.done">
-        <span :class="{ done: todo.done }">{{ todo.text }} </span>
+        <span :class="{ done: todo.done }"> {{ todo.text }} </span>
         <button @click="removeTodo(todo)">X</button>
       </li>
     </ul>

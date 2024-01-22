@@ -10,7 +10,7 @@
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: #8ec07c;
   transition: 0.4s;
   padding: 3px;
 }
@@ -28,8 +28,39 @@ a,
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /*display: grid;*/
+    /*grid-template-columns: 1fr 1fr;*/
     padding: 0 2rem;
   }
+}
+
+header {
+  padding-bottom: 0.8rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  border-bottom: 2px solid #8ec07c;
+}
+
+header .logo {
+  display: flex;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0;
+  color: #8ec07c;
+}
+
+header a {
+  text-decoration: underline;
+  text-decoration-color: #8ec07c;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 0 9px;
+  font-weight: 900;
+}
+
+header::after {
+  content: "";
+  clear: both;
+  display: table;
 }
