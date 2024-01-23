@@ -4,29 +4,6 @@
 #app {
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
   font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: #8ec07c;
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    /*display: grid;*/
-    /*grid-template-columns: 1fr 1fr;*/
-    padding: 0 2rem;
-  }
+  padding: 0 1rem;
 }

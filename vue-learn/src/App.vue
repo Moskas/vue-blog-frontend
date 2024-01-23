@@ -1,7 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue'
 import Home from './components/Home.vue'
-import BlogList from './BlogList.vue';
+import BlogList from './components/BlogList.vue';
+import Footer from '@/components/Footer.vue'
+
 const routes = {
   '/': Home,
   '/blog': BlogList,
@@ -18,14 +20,6 @@ const currentView = computed(() => {
 })
 </script>
 
-<script>
-import Footer from '@/components/Footer.vue'
-
-//export default {
-//  name: 'FooterSection',
-//};
-</script>
-
 <template>
   <header>
     <span class="logo">Moskas' Website</span>
@@ -37,33 +31,5 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
-* {
-  font-family: 'JetBrainsMono Nerd Font';
-}
 
-header {
-  line-height: 1.5;
-}
-
-.done {
-  text-decoration: line-through;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>

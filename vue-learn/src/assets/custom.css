@@ -88,16 +88,11 @@ html {
   font-size: 1em;
 }
 
-body {
-  margin: 1em auto;
-  padding: 0 1rem;
-  max-width: 55rem;
-}
-
 header {
   padding-bottom: 0.8rem;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
+  padding-top: 0.8rem;
   border-bottom: 5px solid var(--gruv-dark-cyan);
   display: flow-root !important;
 }
@@ -141,7 +136,7 @@ main li {
 }
 
 main p {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 a {
@@ -230,6 +225,7 @@ img {
 h1 {
   color: var(--gruv-magenta);
   font-size: 1.75em;
+  padding: 10px 0;
 }
 
 h2 {
