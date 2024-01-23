@@ -14,11 +14,13 @@ const posts = ref([
 ])
 </script>
 <template>
-  <h1>Blog Posts</h1>
-  <ul>
-    <li v-for="post in posts" :key="post.id">
-      <h2>{{ post.title }}</h2>
-      <span style="white-space: pre-line">{{ post.description }}</span>
-    </li>
-  </ul>
+  <main>
+    <h1>Blog Posts</h1>
+    <ul>
+      <li v-for="post in posts" :key="post.id">
+        <h2>{{ post.title }}</h2>
+        <span style="white-space: pre-line">{{ post.description }}</span>
+      </li>
+    </ul>
+  </main>
 </template>
