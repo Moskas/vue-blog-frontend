@@ -33,7 +33,6 @@ const currentView = computed(() => {
     <span class="logo">Moskas' Website</span>
     <a href="#/">Home</a>
     <a href="#/blog">Blog</a>
-    <a href="#/blog/test">Test Post</a>
     <a href="#/about">About</a>
     <a href="#/crypto">Stock</a>
   </header>

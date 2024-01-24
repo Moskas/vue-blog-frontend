@@ -29,7 +29,7 @@
               <h2>{{ post.title }}</h2>
               <span class="post-info">{{ formatDate(post.publishDate) }} by {{ post.author.user.username }}</span>
               <div v-html="post.shortDescription"></div>
-              <a href="">Read more</a>
+              <a href="#/blog/test">Read more</a>
             </div>
           </div>
         </div>
