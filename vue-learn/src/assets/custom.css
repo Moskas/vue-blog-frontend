@@ -408,7 +408,7 @@ blockquote p {
   color: var(--fg);
   background-color: var(--bg0_s);
   padding: 0.5rem 1rem;
-  margin: 0;
+  margin: 1rem;
 }
 
 .post:nth-child(odd) {

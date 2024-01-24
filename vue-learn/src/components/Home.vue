@@ -1,6 +1,7 @@
 <template>
     <main>
         <h1>Hello there!</h1>
+        <img src="https://moskas.github.io/IMG/kitty.png" class="img-paragraph" alt="Avatar of a white cat">
         <p>
             I'm Moskas, a hobbyist computer programmer from Poland. The website has
             no particular topic other than being mostly tech related. It's mainly a
