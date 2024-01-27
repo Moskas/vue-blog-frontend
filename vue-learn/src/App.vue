@@ -7,6 +7,7 @@ import Footer from '@/components/Footer.vue'
 import BlogList from '@/components/BlogList.vue'
 import NotFound from '@/components/NotFound.vue'
 import Post from './components/Post.vue'
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = {
   '/': Home,
@@ -14,6 +15,7 @@ const routes = {
   '/about': About,
   '/crypto': Stock,
   '/blog/test': Post,
+  '/blog/:slug': Post,
   '/:notFound': NotFound,
 }
 
@@ -29,16 +31,19 @@ const currentView = computed(() => {
 </script>
 
 <template>
-  <header>
-    <span class="logo">Moskas' Website</span>
-    <a href="#/">Home</a>
-    <a href="#/blog">Blog</a>
-    <a href="#/about">About</a>
-    <a href="#/crypto">Stock</a>
-  </header>
-  <component :is="currentView" />
-  <Footer />
+  <main>
+    <header>
+      <span class="logo">Moskas' Website</span>
+      <router-link to="/">Home</router-link>
+      <router-link to="/blog">Blog</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/crypto">Stock</router-link>
+    </header>
+    <router-view />
+    <Footer />
+  </main>
 </template>
+
 
 <style scoped>
 

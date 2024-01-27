@@ -32,12 +32,13 @@
               <h2>{{ post.title }}</h2>
               <span class="post-info">{{ formatDate(post.publishDate) }} by {{
                 post.author.user.username.charAt(0).toUpperCase() + post.author.user.username.slice(1) }}, tags:
-                <a v-for="(tag, index) in post.tags" :key="index">{{ tag.name }}<span
-                    v-if="index < post.tags.length - 1">,</span>
+                <a v-for="(tag, index) in post.tags" :key="index">#{{ tag.name }}<span
+                    v-if="index < post.tags.length - 1">&nbsp;</span>
                 </a>
               </span>
               <div v-html="post.shortDescription"></div>
-              <a href="#/blog/test">Read more</a>
+              <!-- Use router-link to generate links based on post slug -->
+              <router-link :to="{ name: 'post', params: { slug: post.slug } }">Read more</router-link>
             </div>
           </div>
         </div>
@@ -48,9 +49,13 @@
   </main>
 </template>
 <script>
+import { useRoute } from 'vue-router';
+
 export default {
-  methods: {
-    formatDate(unixTimestamp) {
+  setup() {
+    const route = useRoute();
+
+    const formatDate = (unixTimestamp) => {
       const date = new Date(unixTimestamp);
       const options = {
         hour: 'numeric',
@@ -61,7 +66,12 @@ export default {
       };
 
       return date.toLocaleString('pl-PL', options);
-    },
+    };
+
+    return {
+      formatDate,
+      route,
+    };
   },
 };
 </script>
