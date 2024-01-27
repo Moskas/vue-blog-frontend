@@ -14,6 +14,9 @@
         publishDate
         slug
         shortDescription
+        tags {
+          name
+        }
       }
     }
     `">
@@ -27,7 +30,12 @@
           <div v-for="post in data.allPosts" :key="post.slug">
             <div class="post">
               <h2>{{ post.title }}</h2>
-              <span class="post-info">{{ formatDate(post.publishDate) }} by {{ post.author.user.username }}</span>
+              <span class="post-info">{{ formatDate(post.publishDate) }} by {{
+                post.author.user.username.charAt(0).toUpperCase() + post.author.user.username.slice(1) }}, tags:
+                <a v-for="(tag, index) in post.tags" :key="index">{{ tag.name }}<span
+                    v-if="index < post.tags.length - 1">,</span>
+                </a>
+              </span>
               <div v-html="post.shortDescription"></div>
               <a href="#/blog/test">Read more</a>
             </div>
