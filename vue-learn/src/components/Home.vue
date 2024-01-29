@@ -35,21 +35,78 @@
             all my devices. Even this site has some nix in it!
         </p>
         <h1>Recent blog posts</h1>
-        <p class="post">
-            <a href="POSTS/new-years-resolutions.html"><b>01.01.2024</b> - New Years Resolutions</a>
-        </p>
-
-        <p class="post">
-            <a href="POSTS/orgmode-support.html"><b>17.12.2023</b> - Org-mode support</a>
-        </p>
-        <p class="post">
-            <a href="POSTS/cursed-idea.html"><b>04.09.2023</b> - Cursed idea</a>
-        </p>
-        <p class="post">
-            <a href="POSTS/keyboards.html"><b>25.07.2023</b> - Keyboards and me</a>
-        </p>
-        <p class="post">
-            <a href="POSTS/website-revision.html"><b>19.07.2023</b> - Website revision</a>
-        </p>
+        <div class="post">
+            <ApolloQuery :query="gql => gql`
+      query { latestPosts {
+        title
+        author {
+          user {
+            username
+          }
+        }
+        publishDate
+        slug
+        shortDescription
+        tags {
+          name
+        }
+      }
+    }
+    `">
+                <template v-slot="{ result: { loading, error, data } }">
+                    <!-- Loading -->
+                    <div v-if="loading" class="loading apollo">Loading...</div>
+                    <!-- Error -->
+                    <div v-else-if="error" class="error apollo">An error occurred</div>
+                    <!-- Result -->
+                    <div v-else-if="data && data.latestPosts.length > 0" class="result apollo">
+                        <div v-for="post in data.latestPosts" :key="post.slug">
+                            <div class="post-compact">
+                                <router-link :to="{ name: 'post', params: { slug: post.slug } }"> {{ post.title
+                                }}</router-link>
+                                <span class="post-info"> :: {{ formatDate(post.publishDate) }} by {{
+                                    post.author.user.username.charAt(0).toUpperCase() + post.author.user.username.slice(1)
+                                }},
+                                    tags:
+                                    <a v-for="(tag, index) in post.tags" :key="index">#{{ tag.name }}<span
+                                            v-if="index < post.tags.length - 1">&nbsp;</span>
+                                    </a>
+                                </span>
+                                <!-- Use router-link to generate links based on post slug -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- No result -->
+                    <div v-else class="no-result apollo">No result :(</div>
+                </template>
+        </ApolloQuery>
+        </div>
     </main>
 </template>
+<script>
+import { useRoute } from 'vue-router';
+
+export default {
+    setup() {
+        const route = useRoute();
+
+        const formatDate = (unixTimestamp) => {
+            const date = new Date(unixTimestamp);
+            const options = {
+                hour: 'numeric',
+                minute: 'numeric',
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric',
+            };
+
+            return date.toLocaleString('pl-PL', options);
+        };
+
+        return {
+            formatDate,
+            route,
+        };
+    },
+};
+</script>

@@ -126,17 +126,8 @@ header .logo {
   color: var(--gruv-green);
 }
 
-main {
-  padding: 0.2vw;
-  display: block;
-}
-
 main li {
   margin-right: 2rem;
-}
-
-main p {
-  margin: 0.5rem 0;
 }
 
 a {
@@ -208,24 +199,30 @@ img {
     margin-top: 0 !important;
     border: 2px solid var(--gruv-cyan);
   }
+
   .img-post:nth-child(odd) {
     float: left;
   }
+
 }
 
 @media (max-width: 800px) {
   .img-post {
     border: 2px solid var(--gruv-cyan);
   }
+
   .img-paragraph {
     display: none;
+  }
+
+  .post {
+    margin: 0;
   }
 }
 
 h1 {
   color: var(--gruv-magenta);
   font-size: 1.75em;
-  padding: 10px 0;
 }
 
 h2 {
@@ -233,6 +230,7 @@ h2 {
   font-size: 1.5em;
   padding-bottom: 4px;
   border-bottom: 1px solid var(--gruv-cyan);
+  margin: 0;
 }
 
 h3 {
@@ -318,6 +316,7 @@ blockquote p {
     box-sizing: border-box;
     word-break: break-word;
   }
+
   @media (prefers-color-scheme: dark) {
     .info {
       background: var(--bg1);
@@ -408,7 +407,12 @@ blockquote p {
   color: var(--fg);
   background-color: var(--bg0_s);
   padding: 0.5rem 1rem;
-  margin: 1rem;
+  margin: 1rem 0.5rem;
+}
+
+.post-compact {
+  padding: 5px;
+  margin: 0;
 }
 
 .post:nth-child(odd) {
@@ -421,6 +425,7 @@ blockquote p {
 
 .post h2 {
   margin: 10px 0;
+  border-bottom: 2px solid var(--bg2);
 }
 
 /* Gallery */
@@ -440,7 +445,8 @@ blockquote p {
 }
 
 .child {
-  flex: 1 0 21%; /* explanation below */
+  flex: 1 0 21%;
+  /* explanation below */
   margin: 5px;
   background-color: var(--bg3);
   height: 100%;
