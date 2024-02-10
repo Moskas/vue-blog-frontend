@@ -6,8 +6,9 @@ import About from '@/components/About.vue'
 import Footer from '@/components/Footer.vue'
 import BlogList from '@/components/BlogList.vue'
 import NotFound from '@/components/NotFound.vue'
-import Post from './components/Post.vue'
-import { createRouter, createWebHistory } from 'vue-router';
+import Post from '@/components/Post.vue'
+import WritePost from '@/components/WritePost.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = {
   '/': Home,
@@ -17,6 +18,7 @@ const routes = {
   '/blog/test': Post,
   '/blog/:slug': Post,
   '/:notFound': NotFound,
+  '/admin': WritePost
 }
 
 const currentPath = ref(window.location.hash)
@@ -38,13 +40,11 @@ const currentView = computed(() => {
       <router-link to="/blog">Blog</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/crypto">Stock</router-link>
+      <router-link to="/admin">hmm</router-link>
     </header>
     <router-view />
     <Footer />
   </main>
 </template>
 
-
-<style scoped>
-
-</style>
+<style scoped></style>
